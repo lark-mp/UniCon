@@ -264,64 +264,52 @@ namespace UniCon.CV
 			DrawAzimuth(src, angle_test);
 			DrawAngleTape(src, angle_test);
 		}
-		private void DrawAzimuth(IplImage src, double angle = 0)
-		{
-			double vr = 30;
-			CvPoint[] vpoint = new CvPoint[3];
-			double drawposition = 11.0f / 16;
-			angle = -angle / 180 * Math.PI;
-			vpoint[0] = Cv.Point((int)(vr * Math.Cos(angle + Math.PI / 2) + src.Width * drawposition), (int)(-vr * Math.Sin(angle + Math.PI / 2) + src.Height * drawposition));
-			vpoint[1] = Cv.Point((int)(vr * Math.Cos(angle - Math.PI * 9 / 16) + src.Width * drawposition), (int)(-vr * Math.Sin(angle - Math.PI * 9 / 16) + src.Height * drawposition));
-			vpoint[2] = Cv.Point((int)(vr * Math.Cos(angle - Math.PI * 7 / 16) + src.Width * drawposition), (int)(-vr * Math.Sin(angle - Math.PI * 7 / 16) + src.Height * drawposition));
-			Cv.Circle(src, Cv.Point((int)(src.Width * drawposition), (int)(src.Height * drawposition)), 30, DEFAULT_COLOR, 1);
-			Cv.FillConvexPoly(src, vpoint, DEFAULT_COLOR);
+        private void DrawAzimuth(IplImage src, double angle = 0)
+        {
+            double vr = 30;
+            CvPoint[] vpoint = new CvPoint[3];
+            double drawposition = 11.0f / 16;
+            angle = -angle / 180 * Math.PI;
+            vpoint[0] = Cv.Point((int)(vr * Math.Cos(angle + Math.PI / 2) + src.Width * drawposition), (int)(-vr * Math.Sin(angle + Math.PI / 2) + src.Height * drawposition));
+            vpoint[1] = Cv.Point((int)(vr * Math.Cos(angle - Math.PI * 9 / 16) + src.Width * drawposition), (int)(-vr * Math.Sin(angle - Math.PI * 9 / 16) + src.Height * drawposition));
+            vpoint[2] = Cv.Point((int)(vr * Math.Cos(angle - Math.PI * 7 / 16) + src.Width * drawposition), (int)(-vr * Math.Sin(angle - Math.PI * 7 / 16) + src.Height * drawposition));
+            Cv.Circle(src, Cv.Point((int)(src.Width * drawposition), (int)(src.Height * drawposition)), 30, DEFAULT_COLOR, 1);
+            Cv.FillConvexPoly(src, vpoint, DEFAULT_COLOR);
 
-			/*
-			CvPoint vpoint[0]=new CvPoint((int)(vr*Math.Cos*(angle+Math.PI/2)),(int)(vr*Math.Sin*(angle+Math.PI/2)));
-			CvPoint vpoint[1]=new CvPoint((int)(vr*Math.Cos*(angle-Math.PI*9/16)),(int)(vr*Math.Sin*(angle-Math.PI*9/16)));
-			CvPoint vpoint[2]=new CvPoint((int)(vr*Math.Cos*(angle-Math.PI*7/16)),(int)(vr*Math.Sin*(angle-Math.PI*7/16)));
-			*/
-		}
+        }
 
 
-		private void DrawAngleTape(IplImage src, double angle = 0)
-		{
-			double anglelabel;
-			double anglescale = 5000.0f / src.Width;
+        private void DrawAngleTape(IplImage src, double degAngle = 0)
+        {
+            double anglelabel;
+            double anglescale = 3000.0f / src.Width;
 
+            for (int i = 0; i < 18; i++)
+            {
+                anglelabel = i * 20 + degAngle;
+                if (anglelabel > 180)
+                {
+                    anglelabel -= 360;
+                }
+                if (anglelabel > -80 && anglelabel < 80)
+                {
 
+                    Cv.Line(src, Cv.Point((int)(-anglescale * anglelabel + src.Width / 2), src.Height * 4 / 32), Cv.Point((int)(-anglescale * anglelabel + src.Width / 2), src.Height * 5 / 32), DEFAULT_COLOR);
 
-			List<FontFace> font_face = new List<FontFace>((FontFace[])Enum.GetValues(typeof(FontFace)));
-			CvFont[] font = new CvFont[font_face.Count * 2];
-			double fontsize = 0.5;
-			for (int i = 0; i < font.Length; i += 2)
-			{
-				font[i] = new CvFont(font_face[i / 2], fontsize, fontsize);
-				font[i + 1] = new CvFont(font_face[i / 2] | FontFace.Italic, fontsize, fontsize);
-			}
+                    int labelString = -i * 20;
 
+                    if (labelString < -180)
+                    {
+                        labelString += 360;
+                    }
 
-			for (int i = 0; i < 36; i++)
-			{
-				anglelabel = i * 10 + angle;
-				if (anglelabel > 180)
-				{
-					anglelabel -= 360;
-				}
-				if (anglelabel > -50 && anglelabel < 50)
-				{
+                    string CurrentAngle = (labelString).ToString();
+                    int labelXShift = 7 - CurrentAngle.Length * 8 + src.Width / 2;
+                    Cv.PutText(src, CurrentAngle, Cv.Point((int)(-anglescale * anglelabel + labelXShift), src.Height * 6 / 32 + 2), new CvFont(FontFace.HersheyDuplex, 0.5, 0.5), DEFAULT_COLOR);
+                }
 
-					Cv.Line(src, Cv.Point((int)(-anglescale * anglelabel + src.Width / 2), src.Height * 3 / 16), Cv.Point((int)(-anglescale * anglelabel + src.Width / 2), src.Height * 4 / 16), DEFAULT_COLOR);
-				}
+            }
 
-			}
-
-
-
-
-			string CurrentAngle = angle.ToString();
-			Cv.PutText(src, CurrentAngle, Cv.Point(src.Width / 2, src.Height * 5 / 16), font[3], DEFAULT_COLOR);
-
-		}
+        }
 	}
 }

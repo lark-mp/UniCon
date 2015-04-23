@@ -38,16 +38,21 @@ namespace UniCon.CommunicationControl.Communicator
 				line = rawresult.Split('\n')[0];
 				// 1行分を rawresult から取り除く
 				rawresult = rawresult.Substring(rawresult.Split('\n')[0].Length + 1);
+
+                ReceiveLineEventArgs le = new ReceiveLineEventArgs();
+                le.line = line;
+                OnLineReceived(le);
 			}
-			ReceiveLineEventArgs le = new ReceiveLineEventArgs();
-			le.line = line;
-			OnLineReceived(le);
+			
 			return;
 		}
 
         public override void SendLine(string line)
         {
-			port.WriteLine(line);
+            lock (this)
+            {
+                port.WriteLine(line);
+            }
         }
 
         public override void Disconnect()

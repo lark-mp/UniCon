@@ -27,8 +27,23 @@ namespace UniCon
 
 		public UniConForm()
 		{
+            registryUpdate();
 			InitializeComponent();
 		}
+
+        private static void registryUpdate()
+        {
+            //キー（HKEY_CURRENT_USER\Software\test\sub）を開く
+            Microsoft.Win32.RegistryKey regkey =
+                Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION");
+
+            //REG_QWORDで書き込む
+            regkey.SetValue("UniCon.exe", 0x2AF8, Microsoft.Win32.RegistryValueKind.DWord);
+            regkey.SetValue("UniCon.vshost.exe", 0x2AF8, Microsoft.Win32.RegistryValueKind.DWord);
+
+            //閉じる
+            regkey.Close();
+        }
 
 		private void UniConForm_Load(object sender, EventArgs e)
 		{
@@ -172,7 +187,7 @@ namespace UniCon
 			if (e.KeyCode == System.Windows.Forms.Keys.Enter)
 			{
 				teleConComCon.SendLine(commandTBox.Text);
-                hostTBox.Text += commandTBox.Text;
+                hostTBox.Text += (commandTBox.Text+"\r\n");
 				commandTBox.Clear();
 			}
 		}
@@ -187,6 +202,26 @@ namespace UniCon
         {
             object[] args = { };
             gMapWebBrowser.Document.InvokeScript("clearLine", args);
+        }
+
+        private void waypointAffirmButton_Click(object sender, EventArgs e)
+        {
+            
+            object[] args = { };
+            string waypointString = (string)gMapWebBrowser.Document.InvokeScript("getWaypointString", args);
+
+            waypointString = waypointString.Replace("(","");
+            waypointString = waypointString.Replace(" ","");
+            string[] latlng = waypointString.Split(')');
+
+            Console.WriteLine(waypointString);
+
+            teleConComCon.SendLine("clearWaypoints");
+            for (int i = 0; i < latlng.Length-1; i++)
+            {
+                string command = "setWaypoint " + latlng[i];
+                teleConComCon.SendLine(command);
+            }
         }
 
         private void headTrackZeroBtn_Click(object sender, EventArgs e)
@@ -244,6 +279,8 @@ namespace UniCon
 
 
         #endregion
+
+
 
 	}
 }

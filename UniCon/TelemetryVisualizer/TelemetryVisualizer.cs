@@ -26,9 +26,10 @@ namespace UniCon.TelemetryVisualizer
         AttitudeImage pitchImage;
         AttitudeImage headingImage;
 
-        double roll = 0.0;
-        double pitch = 0.0;
-        double heading = 0.0;
+        public double degRoll { get; set; }
+        public double degPitch {get; set; }
+        public double degHeading {get; set;}
+        public double degCannonHeadingRelativeToBody {get;set;}
         
         double latitude;
         double longitude;
@@ -37,7 +38,8 @@ namespace UniCon.TelemetryVisualizer
 
         public TelemetryVisualizer(PictureBox rollPicBox, PictureBox pitchPicBox, PictureBox headingPicBox, WebBrowser browser)
         {
-            
+            latitude = 35.707256;
+            longitude = 139.760640;
             rollImage = new AttitudeImage(rollPicBox, rollFront, rollBack);
             pitchImage = new AttitudeImage(pitchPicBox, pitchFront, pitchBack);
             headingImage = new AttitudeImage(headingPicBox, headingFront, headingBack);
@@ -46,17 +48,17 @@ namespace UniCon.TelemetryVisualizer
 
         public void PaintRoll(Graphics g)
         {
-            rollImage.PaintAttitude(g, roll);
+            rollImage.PaintAttitude(g, degRoll);
         }
 
         public void PaintPitch(Graphics g)
         {
-            pitchImage.PaintAttitude(g, pitch);
+            pitchImage.PaintAttitude(g, degPitch);
         }
 
         public void PaintHeading(Graphics g)
         {
-            headingImage.PaintAttitude(g, heading);
+            headingImage.PaintAttitude(g, degHeading);
         }
 
 		public void DecodeLine(string line)
@@ -64,30 +66,43 @@ namespace UniCon.TelemetryVisualizer
 			string[] words = line.Split(',');
 			if (line.Contains(GPAIO))
             {
+                double tmpDegPitch;
+                double tmpDegRoll;
+                double tmpDegHeading;
+
                 latitude = double.Parse(words[1].Substring(0, 2)) + double.Parse(words[1].Substring(2)) / 60;
                 longitude = double.Parse(words[3].Substring(0, 3)) + double.Parse(words[3].Substring(3)) / 60;
                 double.TryParse(words[6], out accuracy);
                 accuracy *= 5.0;
 
-                double.TryParse(words[7], out pitch);
-				double.TryParse(words[8], out roll);
-                double.TryParse(words[9], out heading);
+                double.TryParse(words[7], out tmpDegPitch);
+				double.TryParse(words[8], out tmpDegRoll);
+                double.TryParse(words[9], out tmpDegHeading);
+
+                degPitch = tmpDegPitch;
+                degRoll = tmpDegRoll;
+                degHeading = tmpDegHeading;
             }
 			else if (line.Contains(GIQAT))
 			{
 				Quaternion rawAttitude = new Quaternion(Double.Parse(words[1]), Double.Parse(words[2]), Double.Parse(words[3]), Double.Parse(words[4]));
 
-				pitch = rawAttitude.calcRadPitch() * 180 / Math.PI;
-				roll = rawAttitude.calcRadRoll() * 180 / Math.PI;
-				heading = rawAttitude.calcRadHeading() * 180 / Math.PI;
-			}
+				degPitch = rawAttitude.calcRadPitch() * 180 / Math.PI;
+				degRoll = rawAttitude.calcRadRoll() * 180 / Math.PI;
+				degHeading = rawAttitude.calcRadHeading() * 180 / Math.PI;
+            }
+            else if (words[0] == "$GITNK")
+            {
+                degCannonHeadingRelativeToBody = double.Parse(words[1]);
+            }
 
 		}
 
         private void UpdatePos()
         {
-            object[] args = { latitude.ToString(), longitude.ToString(), accuracy.ToString() };
-            browser.Document.InvokeScript("updatePosition", args);
+            object[] args = { latitude.ToString(), longitude.ToString(), accuracy.ToString(), degHeading.ToString() };
+            this.browser.Document.InvokeScript("updatePosition", args);
+            
         }
 	}
 }

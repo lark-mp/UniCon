@@ -501,6 +501,15 @@
   <data name="&gt;&gt;joypadGBox.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="headTrackerComCon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 18</value>
+  </data>
+  <data name="headTrackerComCon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 126</value>
+  </data>
+  <data name="headTrackerComCon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;headTrackerComCon.Name" xml:space="preserve">
     <value>headTrackerComCon</value>
   </data>
@@ -536,111 +545,6 @@
   </data>
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="headTrackerComCon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 18</value>
-  </data>
-  <data name="headTrackerComCon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 126</value>
-  </data>
-  <data name="headTrackerComCon.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;headTrackerComCon.Name" xml:space="preserve">
-    <value>headTrackerComCon</value>
-  </data>
-  <data name="&gt;&gt;headTrackerComCon.Type" xml:space="preserve">
-    <value>UniCon.CommunicationControl.CommunicationControl, UniCon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;headTrackerComCon.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;headTrackerComCon.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileRecCBox.Name" xml:space="preserve">
-    <value>telemetryFileRecCBox</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileRecCBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileRecCBox.Parent" xml:space="preserve">
-    <value>teleConGBox</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileRecCBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileOpenBtn.Name" xml:space="preserve">
-    <value>telemetryFileOpenBtn</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileOpenBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileOpenBtn.Parent" xml:space="preserve">
-    <value>teleConGBox</value>
-  </data>
-  <data name="&gt;&gt;telemetryFileOpenBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;telemetrySaveTBox.Name" xml:space="preserve">
-    <value>telemetrySaveTBox</value>
-  </data>
-  <data name="&gt;&gt;telemetrySaveTBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;telemetrySaveTBox.Parent" xml:space="preserve">
-    <value>teleConGBox</value>
-  </data>
-  <data name="&gt;&gt;telemetrySaveTBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;teleSaveLabel.Name" xml:space="preserve">
-    <value>teleSaveLabel</value>
-  </data>
-  <data name="&gt;&gt;teleSaveLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;teleSaveLabel.Parent" xml:space="preserve">
-    <value>teleConGBox</value>
-  </data>
-  <data name="&gt;&gt;teleSaveLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;teleConComCon.Name" xml:space="preserve">
-    <value>teleConComCon</value>
-  </data>
-  <data name="&gt;&gt;teleConComCon.Type" xml:space="preserve">
-    <value>UniCon.CommunicationControl.CommunicationControl, UniCon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;teleConComCon.Parent" xml:space="preserve">
-    <value>teleConGBox</value>
-  </data>
-  <data name="&gt;&gt;teleConComCon.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="teleConGBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 488</value>
-  </data>
-  <data name="teleConGBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 176</value>
-  </data>
-  <data name="teleConGBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="teleConGBox.Text" xml:space="preserve">
-    <value>Telemetry/Controller</value>
-  </data>
-  <data name="&gt;&gt;teleConGBox.Name" xml:space="preserve">
-    <value>teleConGBox</value>
-  </data>
-  <data name="&gt;&gt;teleConGBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;teleConGBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;teleConGBox.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="telemetryFileRecCBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -774,50 +678,71 @@
   <data name="&gt;&gt;teleConComCon.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;visualView.Name" xml:space="preserve">
-    <value>visualView</value>
+  <data name="teleConGBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 488</value>
   </data>
-  <data name="&gt;&gt;visualView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="teleConGBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 176</value>
   </data>
-  <data name="&gt;&gt;visualView.Parent" xml:space="preserve">
-    <value>viewTab</value>
+  <data name="teleConGBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;visualView.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="teleConGBox.Text" xml:space="preserve">
+    <value>Telemetry/Controller</value>
   </data>
-  <data name="&gt;&gt;debugView.Name" xml:space="preserve">
-    <value>debugView</value>
+  <data name="&gt;&gt;teleConGBox.Name" xml:space="preserve">
+    <value>teleConGBox</value>
   </data>
-  <data name="&gt;&gt;debugView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;teleConGBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;debugView.Parent" xml:space="preserve">
-    <value>viewTab</value>
-  </data>
-  <data name="&gt;&gt;debugView.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="viewTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 12</value>
-  </data>
-  <data name="viewTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>657, 737</value>
-  </data>
-  <data name="viewTab.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;viewTab.Name" xml:space="preserve">
-    <value>viewTab</value>
-  </data>
-  <data name="&gt;&gt;viewTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;viewTab.Parent" xml:space="preserve">
+  <data name="&gt;&gt;teleConGBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;viewTab.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;teleConGBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="gMapWaypointAffirmButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="gMapWaypointAffirmButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 460</value>
+  </data>
+  <data name="gMapWaypointAffirmButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="gMapWaypointAffirmButton.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="gMapWaypointAffirmButton.Text" xml:space="preserve">
+    <value>Waypoint</value>
+  </data>
+  <data name="&gt;&gt;gMapWaypointAffirmButton.Name" xml:space="preserve">
+    <value>gMapWaypointAffirmButton</value>
+  </data>
+  <data name="&gt;&gt;gMapWaypointAffirmButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gMapWaypointAffirmButton.Parent" xml:space="preserve">
+    <value>visualView</value>
+  </data>
+  <data name="&gt;&gt;gMapWaypointAffirmButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gMapCurPosBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="gMapCurPosBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 402</value>
+  </data>
+  <data name="gMapCurPosBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="gMapCurPosBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="gMapCurPosBtn.Text" xml:space="preserve">
+    <value>CurPos</value>
   </data>
   <data name="&gt;&gt;gMapCurPosBtn.Name" xml:space="preserve">
     <value>gMapCurPosBtn</value>
@@ -829,7 +754,22 @@
     <value>visualView</value>
   </data>
   <data name="&gt;&gt;gMapCurPosBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="gMapClearBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="gMapClearBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 431</value>
+  </data>
+  <data name="gMapClearBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="gMapClearBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="gMapClearBtn.Text" xml:space="preserve">
+    <value>Clear</value>
   </data>
   <data name="&gt;&gt;gMapClearBtn.Name" xml:space="preserve">
     <value>gMapClearBtn</value>
@@ -841,7 +781,19 @@
     <value>visualView</value>
   </data>
   <data name="&gt;&gt;gMapClearBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="pitchPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pitchPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>443, 492</value>
+  </data>
+  <data name="pitchPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 200</value>
+  </data>
+  <data name="pitchPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
   <data name="&gt;&gt;pitchPictureBox.Name" xml:space="preserve">
     <value>pitchPictureBox</value>
@@ -853,7 +805,19 @@
     <value>visualView</value>
   </data>
   <data name="&gt;&gt;pitchPictureBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="headingPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="headingPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 492</value>
+  </data>
+  <data name="headingPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 200</value>
+  </data>
+  <data name="headingPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="&gt;&gt;headingPictureBox.Name" xml:space="preserve">
     <value>headingPictureBox</value>
@@ -865,7 +829,19 @@
     <value>visualView</value>
   </data>
   <data name="&gt;&gt;headingPictureBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="rollPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rollPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 492</value>
+  </data>
+  <data name="rollPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 200</value>
+  </data>
+  <data name="rollPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
   <data name="&gt;&gt;rollPictureBox.Name" xml:space="preserve">
     <value>rollPictureBox</value>
@@ -877,7 +853,19 @@
     <value>visualView</value>
   </data>
   <data name="&gt;&gt;rollPictureBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
+  </data>
+  <data name="gMapWebBrowser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="gMapWebBrowser.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="gMapWebBrowser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>640, 480</value>
+  </data>
+  <data name="gMapWebBrowser.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;gMapWebBrowser.Name" xml:space="preserve">
     <value>gMapWebBrowser</value>
@@ -889,7 +877,7 @@
     <value>visualView</value>
   </data>
   <data name="&gt;&gt;gMapWebBrowser.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="visualView.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -918,155 +906,17 @@
   <data name="&gt;&gt;visualView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="gMapCurPosBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="debugTBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
   </data>
-  <data name="gMapCurPosBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>568, 402</value>
+  <data name="debugTBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="gMapCurPosBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="debugTBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>637, 699</value>
   </data>
-  <data name="gMapCurPosBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="gMapCurPosBtn.Text" xml:space="preserve">
-    <value>CurPos</value>
-  </data>
-  <data name="&gt;&gt;gMapCurPosBtn.Name" xml:space="preserve">
-    <value>gMapCurPosBtn</value>
-  </data>
-  <data name="&gt;&gt;gMapCurPosBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gMapCurPosBtn.Parent" xml:space="preserve">
-    <value>visualView</value>
-  </data>
-  <data name="&gt;&gt;gMapCurPosBtn.ZOrder" xml:space="preserve">
+  <data name="debugTBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="gMapClearBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="gMapClearBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>568, 431</value>
-  </data>
-  <data name="gMapClearBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="gMapClearBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="gMapClearBtn.Text" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="&gt;&gt;gMapClearBtn.Name" xml:space="preserve">
-    <value>gMapClearBtn</value>
-  </data>
-  <data name="&gt;&gt;gMapClearBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gMapClearBtn.Parent" xml:space="preserve">
-    <value>visualView</value>
-  </data>
-  <data name="&gt;&gt;gMapClearBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pitchPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pitchPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>443, 492</value>
-  </data>
-  <data name="pitchPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 200</value>
-  </data>
-  <data name="pitchPictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;pitchPictureBox.Name" xml:space="preserve">
-    <value>pitchPictureBox</value>
-  </data>
-  <data name="&gt;&gt;pitchPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pitchPictureBox.Parent" xml:space="preserve">
-    <value>visualView</value>
-  </data>
-  <data name="&gt;&gt;pitchPictureBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="headingPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="headingPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 492</value>
-  </data>
-  <data name="headingPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 200</value>
-  </data>
-  <data name="headingPictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;headingPictureBox.Name" xml:space="preserve">
-    <value>headingPictureBox</value>
-  </data>
-  <data name="&gt;&gt;headingPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;headingPictureBox.Parent" xml:space="preserve">
-    <value>visualView</value>
-  </data>
-  <data name="&gt;&gt;headingPictureBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="rollPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rollPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 492</value>
-  </data>
-  <data name="rollPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 200</value>
-  </data>
-  <data name="rollPictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;rollPictureBox.Name" xml:space="preserve">
-    <value>rollPictureBox</value>
-  </data>
-  <data name="&gt;&gt;rollPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rollPictureBox.Parent" xml:space="preserve">
-    <value>visualView</value>
-  </data>
-  <data name="&gt;&gt;rollPictureBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="gMapWebBrowser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 6</value>
-  </data>
-  <data name="gMapWebBrowser.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="gMapWebBrowser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>640, 480</value>
-  </data>
-  <data name="gMapWebBrowser.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;gMapWebBrowser.Name" xml:space="preserve">
-    <value>gMapWebBrowser</value>
-  </data>
-  <data name="&gt;&gt;gMapWebBrowser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gMapWebBrowser.Parent" xml:space="preserve">
-    <value>visualView</value>
-  </data>
-  <data name="&gt;&gt;gMapWebBrowser.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="&gt;&gt;debugTBox.Name" xml:space="preserve">
     <value>debugTBox</value>
@@ -1107,113 +957,26 @@
   <data name="&gt;&gt;debugView.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="debugTBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+  <data name="viewTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 12</value>
   </data>
-  <data name="debugTBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="viewTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>657, 737</value>
   </data>
-  <data name="debugTBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>637, 699</value>
+  <data name="viewTab.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="debugTBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;viewTab.Name" xml:space="preserve">
+    <value>viewTab</value>
   </data>
-  <data name="&gt;&gt;debugTBox.Name" xml:space="preserve">
-    <value>debugTBox</value>
+  <data name="&gt;&gt;viewTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;debugTBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;debugTBox.Parent" xml:space="preserve">
-    <value>debugView</value>
-  </data>
-  <data name="&gt;&gt;debugTBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;headTrackZeroBtn.Name" xml:space="preserve">
-    <value>headTrackZeroBtn</value>
-  </data>
-  <data name="&gt;&gt;headTrackZeroBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;headTrackZeroBtn.Parent" xml:space="preserve">
-    <value>cameraGBox</value>
-  </data>
-  <data name="&gt;&gt;headTrackZeroBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;camStabilizeCheckBox.Name" xml:space="preserve">
-    <value>camStabilizeCheckBox</value>
-  </data>
-  <data name="&gt;&gt;camStabilizeCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;camStabilizeCheckBox.Parent" xml:space="preserve">
-    <value>cameraGBox</value>
-  </data>
-  <data name="&gt;&gt;camStabilizeCheckBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cam640Button.Name" xml:space="preserve">
-    <value>cam640Button</value>
-  </data>
-  <data name="&gt;&gt;cam640Button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cam640Button.Parent" xml:space="preserve">
-    <value>cameraGBox</value>
-  </data>
-  <data name="&gt;&gt;cam640Button.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;camOffButton.Name" xml:space="preserve">
-    <value>camOffButton</value>
-  </data>
-  <data name="&gt;&gt;camOffButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;camOffButton.Parent" xml:space="preserve">
-    <value>cameraGBox</value>
-  </data>
-  <data name="&gt;&gt;camOffButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;CamFullHDButton.Name" xml:space="preserve">
-    <value>CamFullHDButton</value>
-  </data>
-  <data name="&gt;&gt;CamFullHDButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CamFullHDButton.Parent" xml:space="preserve">
-    <value>cameraGBox</value>
-  </data>
-  <data name="&gt;&gt;CamFullHDButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="cameraGBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 670</value>
-  </data>
-  <data name="cameraGBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 79</value>
-  </data>
-  <data name="cameraGBox.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="cameraGBox.Text" xml:space="preserve">
-    <value>Camera</value>
-  </data>
-  <data name="&gt;&gt;cameraGBox.Name" xml:space="preserve">
-    <value>cameraGBox</value>
-  </data>
-  <data name="&gt;&gt;cameraGBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cameraGBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;viewTab.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cameraGBox.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;viewTab.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="headTrackZeroBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1373,6 +1136,30 @@
   </data>
   <data name="&gt;&gt;CamFullHDButton.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="cameraGBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 670</value>
+  </data>
+  <data name="cameraGBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 79</value>
+  </data>
+  <data name="cameraGBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="cameraGBox.Text" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="&gt;&gt;cameraGBox.Name" xml:space="preserve">
+    <value>cameraGBox</value>
+  </data>
+  <data name="&gt;&gt;cameraGBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cameraGBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cameraGBox.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="commandTBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>981, 268</value>
@@ -1629,6 +1416,24 @@
   <data name="&gt;&gt;labelSpeedMps.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="speedZLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="speedZLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="speedZLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 51</value>
+  </data>
+  <data name="speedZLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 12</value>
+  </data>
+  <data name="speedZLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="speedZLabel.Text" xml:space="preserve">
+    <value>Z: 0m/s</value>
+  </data>
   <data name="&gt;&gt;speedZLabel.Name" xml:space="preserve">
     <value>speedZLabel</value>
   </data>
@@ -1641,6 +1446,24 @@
   <data name="&gt;&gt;speedZLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="speedYLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="speedYLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="speedYLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 33</value>
+  </data>
+  <data name="speedYLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 12</value>
+  </data>
+  <data name="speedYLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="speedYLabel.Text" xml:space="preserve">
+    <value>Y: 0m/s</value>
+  </data>
   <data name="&gt;&gt;speedYLabel.Name" xml:space="preserve">
     <value>speedYLabel</value>
   </data>
@@ -1652,6 +1475,24 @@
   </data>
   <data name="&gt;&gt;speedYLabel.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="speedXLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="speedXLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="speedXLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 15</value>
+  </data>
+  <data name="speedXLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 12</value>
+  </data>
+  <data name="speedXLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="speedXLabel.Text" xml:space="preserve">
+    <value>X: 0m/s</value>
   </data>
   <data name="&gt;&gt;speedXLabel.Name" xml:space="preserve">
     <value>speedXLabel</value>
@@ -1689,6 +1530,24 @@
   <data name="&gt;&gt;speedGBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="headingLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="headingLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="headingLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 66</value>
+  </data>
+  <data name="headingLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 12</value>
+  </data>
+  <data name="headingLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="headingLabel.Text" xml:space="preserve">
+    <value>Heading: 0.00</value>
+  </data>
   <data name="&gt;&gt;headingLabel.Name" xml:space="preserve">
     <value>headingLabel</value>
   </data>
@@ -1701,6 +1560,24 @@
   <data name="&gt;&gt;headingLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="pitchLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pitchLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pitchLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 50</value>
+  </data>
+  <data name="pitchLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 12</value>
+  </data>
+  <data name="pitchLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="pitchLabel.Text" xml:space="preserve">
+    <value>Pitch: 0.00</value>
+  </data>
   <data name="&gt;&gt;pitchLabel.Name" xml:space="preserve">
     <value>pitchLabel</value>
   </data>
@@ -1712,6 +1589,24 @@
   </data>
   <data name="&gt;&gt;pitchLabel.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="rollLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rollLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rollLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 33</value>
+  </data>
+  <data name="rollLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 12</value>
+  </data>
+  <data name="rollLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="rollLabel.Text" xml:space="preserve">
+    <value>Roll: 0.00</value>
   </data>
   <data name="&gt;&gt;rollLabel.Name" xml:space="preserve">
     <value>rollLabel</value>
@@ -1916,186 +1811,6 @@
   </data>
   <data name="&gt;&gt;statusGBox.ZOrder" xml:space="preserve">
     <value>11</value>
-  </data>
-  <data name="speedZLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="speedZLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="speedZLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 51</value>
-  </data>
-  <data name="speedZLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 12</value>
-  </data>
-  <data name="speedZLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="speedZLabel.Text" xml:space="preserve">
-    <value>Z: 0m/s</value>
-  </data>
-  <data name="&gt;&gt;speedZLabel.Name" xml:space="preserve">
-    <value>speedZLabel</value>
-  </data>
-  <data name="&gt;&gt;speedZLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;speedZLabel.Parent" xml:space="preserve">
-    <value>speedGBox</value>
-  </data>
-  <data name="&gt;&gt;speedZLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="speedYLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="speedYLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="speedYLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 33</value>
-  </data>
-  <data name="speedYLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 12</value>
-  </data>
-  <data name="speedYLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="speedYLabel.Text" xml:space="preserve">
-    <value>Y: 0m/s</value>
-  </data>
-  <data name="&gt;&gt;speedYLabel.Name" xml:space="preserve">
-    <value>speedYLabel</value>
-  </data>
-  <data name="&gt;&gt;speedYLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;speedYLabel.Parent" xml:space="preserve">
-    <value>speedGBox</value>
-  </data>
-  <data name="&gt;&gt;speedYLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="speedXLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="speedXLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="speedXLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 15</value>
-  </data>
-  <data name="speedXLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 12</value>
-  </data>
-  <data name="speedXLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="speedXLabel.Text" xml:space="preserve">
-    <value>X: 0m/s</value>
-  </data>
-  <data name="&gt;&gt;speedXLabel.Name" xml:space="preserve">
-    <value>speedXLabel</value>
-  </data>
-  <data name="&gt;&gt;speedXLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;speedXLabel.Parent" xml:space="preserve">
-    <value>speedGBox</value>
-  </data>
-  <data name="&gt;&gt;speedXLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="headingLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="headingLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="headingLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 66</value>
-  </data>
-  <data name="headingLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 12</value>
-  </data>
-  <data name="headingLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="headingLabel.Text" xml:space="preserve">
-    <value>Heading: 0.00</value>
-  </data>
-  <data name="&gt;&gt;headingLabel.Name" xml:space="preserve">
-    <value>headingLabel</value>
-  </data>
-  <data name="&gt;&gt;headingLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;headingLabel.Parent" xml:space="preserve">
-    <value>attitudeGBox</value>
-  </data>
-  <data name="&gt;&gt;headingLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pitchLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="pitchLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pitchLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 50</value>
-  </data>
-  <data name="pitchLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 12</value>
-  </data>
-  <data name="pitchLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="pitchLabel.Text" xml:space="preserve">
-    <value>Pitch: 0.00</value>
-  </data>
-  <data name="&gt;&gt;pitchLabel.Name" xml:space="preserve">
-    <value>pitchLabel</value>
-  </data>
-  <data name="&gt;&gt;pitchLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pitchLabel.Parent" xml:space="preserve">
-    <value>attitudeGBox</value>
-  </data>
-  <data name="&gt;&gt;pitchLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rollLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rollLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rollLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 33</value>
-  </data>
-  <data name="rollLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 12</value>
-  </data>
-  <data name="rollLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="rollLabel.Text" xml:space="preserve">
-    <value>Roll: 0.00</value>
-  </data>
-  <data name="&gt;&gt;rollLabel.Name" xml:space="preserve">
-    <value>rollLabel</value>
-  </data>
-  <data name="&gt;&gt;rollLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rollLabel.Parent" xml:space="preserve">
-    <value>attitudeGBox</value>
-  </data>
-  <data name="&gt;&gt;rollLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="saveTelemetryDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>144, 17</value>
