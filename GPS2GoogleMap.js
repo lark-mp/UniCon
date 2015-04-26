@@ -67,7 +67,7 @@ function initWaypointLengthDiv(controlDiv){
     controlUI.appendChild(waypointLengthTest);
 }
 
-function updatePosition(latitude, longitude, accuracy,degHeading){
+function updatePosition(latitude, longitude, accuracy,degHeading,gpsValid){
     var lat = parseFloat(latitude);
     var lng = parseFloat(longitude);
     var acc = parseFloat(accuracy);
@@ -79,9 +79,9 @@ function updatePosition(latitude, longitude, accuracy,degHeading){
 //                googlemap.panTo(latlng);
 //        }
 //    }
-
+    
     drawLine(latlng);
-    moveMarker(latlng,hed);
+    moveMarker(latlng,hed,gpsValid);
     drawPrecisionCircle(latlng, acc);
     
 }
@@ -144,7 +144,7 @@ function clearLine(){
 	}
 }
 
-function moveMarker(currentPos,degAttitude){
+function moveMarker(currentPos,degAttitude,gpsValid){
 //	if(!attitudeMarker){	
 	if(!attitudeMarker || !attitudeSymbol){
 		attitudeSymbol = {
@@ -169,6 +169,14 @@ function moveMarker(currentPos,degAttitude){
 		attitudeMarker.setIcon(attitudeSymbol);
 		attitudeMarker.setPosition(currentPos);
 	}
+        if(gpsValid == 1){
+            attitudeSymbol.fillColor = "#FF0000"
+            attitudeSymbol.strokeColor = "#FF0000"
+        }else{
+            attitudeSymbol.fillColor = "#8080FF"
+            attitudeSymbol.strokeColor = "#8080FF"
+            
+        }
 }
 
 function clickAction(event){

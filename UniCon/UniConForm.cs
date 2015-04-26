@@ -90,7 +90,7 @@ namespace UniCon
 
 		private void InitializeAttitudeImage()
 		{
-            telemetryVisualizer = new TelemetryVisualizer.TelemetryVisualizer(rollPictureBox, pitchPictureBox, headingPictureBox, gMapWebBrowser);
+            telemetryVisualizer = new TelemetryVisualizer.TelemetryVisualizer(rollPictureBox, pitchPictureBox, headingPictureBox, gMapWebBrowser,this);
 		}
 
 		private void InitializeInterpreter()
@@ -204,6 +204,8 @@ namespace UniCon
             gMapWebBrowser.Document.InvokeScript("clearLine", args);
         }
 
+        delegate void gMapInvokeDelegate(string function, object[] args);
+
         private void waypointAffirmButton_Click(object sender, EventArgs e)
         {
             
@@ -223,6 +225,53 @@ namespace UniCon
                 teleConComCon.SendLine(command);
             }
         }
+
+        public void setGpsStatusLabel(double lattitude,double longitude,double hdop,double height)
+        {
+            Object[] args = { lattitude, longitude, hdop, height };
+            Invoke(new setGpsStatusLabelDelegate(setGpsStatusLabelDelegateFunc), args);
+        }
+        delegate void setGpsStatusLabelDelegate(double lattitude, double longitude, double hdop, double height);
+        private void setGpsStatusLabelDelegateFunc(double lattitude, double longitude, double hdop, double height)
+        {
+            LatitudeLabel.Text = "Lat: " + lattitude.ToString("###.######") + "[deg]";
+            LongitudeLabel.Text = "Lng: " + longitude.ToString("###.######") + "[deg]";
+            hdopLabel.Text = "HDOP: " + hdop.ToString("###.##");
+            altitudeLabel.Text = "Alt: " + height.ToString("###.##") + "[m]";
+        }
+
+        public void setAttitudeStatusLabel(double aoa,double roll, double pitch,double heading)
+        {
+            Object[] args = { aoa, roll, pitch, heading };
+            Invoke(new setAttitudeStatusLabelDelegate(setAttitudeStatusLabelDelegateFunc),args);
+        }
+        delegate void setAttitudeStatusLabelDelegate(double aoa, double roll, double pitch, double heading);
+        private void setAttitudeStatusLabelDelegateFunc(double aoa, double roll, double pitch, double heading)
+        {
+            aoaLabel.Text = "AOA: " + aoa.ToString("###.##");
+            pitchLabel.Text = "Pitch: " + pitch.ToString("###.##");
+            rollLabel.Text = "Roll: " + roll.ToString("###.##");
+            headingLabel.Text = "Heading: " + heading.ToString("###.##");
+        }
+
+        public void setSpeedStatusLabel(double mpsXSpeed, double mpsYSpeed, double mpsZSpeed)
+        {
+            Object[] args = { mpsXSpeed, mpsYSpeed, mpsZSpeed };
+            Invoke(new setSpeedStatusLabelDelegate(setSpeedStatusLabelDelegateFunc), args);
+
+        }
+        delegate void setSpeedStatusLabelDelegate(double mpsXSpeed,double mpsYSpeed,double mpsZSpeed);
+        private void setSpeedStatusLabelDelegateFunc(double mpsXSpeed, double mpsYSpeed, double mpsZSpeed)
+        {
+            double mpsTotalSpeed = Math.Sqrt(mpsXSpeed*mpsXSpeed + mpsYSpeed*mpsYSpeed + mpsZSpeed*mpsZSpeed);
+            double kphTotalSpeed = mpsTotalSpeed * 3.6;
+            speedXLabel.Text = "X: " + mpsXSpeed.ToString("###.##") + "m/s";
+            speedYLabel.Text = "Y: " + mpsYSpeed.ToString("###.##") + "m/s";
+            speedZLabel.Text = "Z: " + mpsZSpeed.ToString("###.##") + "m/s";
+            labelSpeedKmph.Text = kphTotalSpeed.ToString("###.##") +  "km/h";
+            labelSpeedMps.Text = mpsTotalSpeed.ToString("###.##") + "m/s";
+        }
+        
 
         private void headTrackZeroBtn_Click(object sender, EventArgs e)
         {

@@ -34,9 +34,11 @@ namespace UniCon.TelemetryVisualizer
         double latitude;
         double longitude;
         double accuracy;
+        int gpsValid;
         WebBrowser browser;
+        UniConForm form;
 
-        public TelemetryVisualizer(PictureBox rollPicBox, PictureBox pitchPicBox, PictureBox headingPicBox, WebBrowser browser)
+        public TelemetryVisualizer(PictureBox rollPicBox, PictureBox pitchPicBox, PictureBox headingPicBox, WebBrowser browser, UniConForm form)
         {
             latitude = 35.707256;
             longitude = 139.760640;
@@ -44,6 +46,7 @@ namespace UniCon.TelemetryVisualizer
             pitchImage = new AttitudeImage(pitchPicBox, pitchFront, pitchBack);
             headingImage = new AttitudeImage(headingPicBox, headingFront, headingBack);
             this.browser = browser;
+            this.form = form;
         }
 
         public void PaintRoll(Graphics g)
@@ -66,12 +69,15 @@ namespace UniCon.TelemetryVisualizer
 			string[] words = line.Split(',');
 			if (line.Contains(GPAIO))
             {
+                //$GPAIO,Latitude,N/S,Longitude,E/W,height,HDOP,pitch,roll,yaw,SpeedX,SpeedY,SpeedZ,GpsValid,checksum
                 double tmpDegPitch;
                 double tmpDegRoll;
                 double tmpDegHeading;
+                double height;
 
                 latitude = double.Parse(words[1].Substring(0, 2)) + double.Parse(words[1].Substring(2)) / 60;
                 longitude = double.Parse(words[3].Substring(0, 3)) + double.Parse(words[3].Substring(3)) / 60;
+                double.TryParse(words[5], out height);
                 double.TryParse(words[6], out accuracy);
                 accuracy *= 5.0;
 
@@ -82,6 +88,24 @@ namespace UniCon.TelemetryVisualizer
                 degPitch = tmpDegPitch;
                 degRoll = tmpDegRoll;
                 degHeading = tmpDegHeading;
+
+                double tmpMpsXSpeed;
+                double tmpMpsYSpeed;
+                double tmpMpsZSpeed;
+
+                double.TryParse(words[10], out tmpMpsXSpeed);
+                double.TryParse(words[11], out tmpMpsYSpeed);
+                double.TryParse(words[12], out tmpMpsZSpeed);
+
+                int tmpGpsValid;
+                Int32.TryParse(words[13],out tmpGpsValid);
+                gpsValid = tmpGpsValid;
+
+                UpdatePos();
+
+                form.setGpsStatusLabel(latitude,longitude, 1, height);
+                form.setSpeedStatusLabel(tmpMpsXSpeed,tmpMpsYSpeed,tmpMpsZSpeed);
+                form.setAttitudeStatusLabel(0,degRoll,degPitch,degHeading);
             }
 			else if (line.Contains(GIQAT))
 			{
@@ -90,6 +114,8 @@ namespace UniCon.TelemetryVisualizer
 				degPitch = rawAttitude.calcRadPitch() * 180 / Math.PI;
 				degRoll = rawAttitude.calcRadRoll() * 180 / Math.PI;
 				degHeading = rawAttitude.calcRadHeading() * 180 / Math.PI;
+
+                UpdatePos();
             }
             else if (words[0] == "$GITNK")
             {
@@ -100,9 +126,17 @@ namespace UniCon.TelemetryVisualizer
 
         private void UpdatePos()
         {
-            object[] args = { latitude.ToString(), longitude.ToString(), accuracy.ToString(), degHeading.ToString() };
+            if (browser != null)
+            {
+                browser.Invoke(new UpdatePosDelegate(delegateUpdatePos), null);
+            }
+        }
+
+        private delegate void UpdatePosDelegate();
+        private void delegateUpdatePos()
+        {
+            object[] args = { latitude.ToString(), longitude.ToString(), accuracy.ToString(), degHeading.ToString() ,gpsValid.ToString()};
             this.browser.Document.InvokeScript("updatePosition", args);
-            
         }
 	}
 }

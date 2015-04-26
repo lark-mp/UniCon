@@ -1423,7 +1423,7 @@
     <value>NoControl</value>
   </data>
   <data name="speedZLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 51</value>
+    <value>6, 86</value>
   </data>
   <data name="speedZLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 12</value>
@@ -1453,7 +1453,7 @@
     <value>NoControl</value>
   </data>
   <data name="speedYLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 33</value>
+    <value>6, 68</value>
   </data>
   <data name="speedYLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 12</value>
@@ -1483,7 +1483,7 @@
     <value>NoControl</value>
   </data>
   <data name="speedXLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 15</value>
+    <value>6, 50</value>
   </data>
   <data name="speedXLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 12</value>
@@ -1510,7 +1510,7 @@
     <value>142, 78</value>
   </data>
   <data name="speedGBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 73</value>
+    <value>130, 106</value>
   </data>
   <data name="speedGBox.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1792,7 +1792,7 @@
     <value>981, 526</value>
   </data>
   <data name="statusGBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 169</value>
+    <value>271, 200</value>
   </data>
   <data name="statusGBox.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
