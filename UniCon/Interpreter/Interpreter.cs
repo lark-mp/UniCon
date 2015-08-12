@@ -20,11 +20,15 @@ namespace UniCon.Interpreter
         private CheckBox CamFullHDButton;
         private CheckBox camOffButton;
         private CheckBox camStabilizeCheckBox;
+        private CheckBox resetStateButton;
+        private CheckBox manualControlBtn;
+        private CheckBox pitchHoldButton;
+        private bool joyManualControlButtonPrevious;
 
         bool button2Prev;
         double degHeadTrackerZeroPoint = 0.0;
 
-        public Interpreter(HeadTracker.HeadTracker headTracker, CvOculus cvOculus, CheckBox cam640Button, CheckBox CamFullHDButton, CheckBox camOffButton, CheckBox camStabilizeCheckBox)
+        public Interpreter(HeadTracker.HeadTracker headTracker, CvOculus cvOculus, CheckBox cam640Button, CheckBox CamFullHDButton, CheckBox camOffButton, CheckBox camStabilizeCheckBox, CheckBox resetStateBtn, CheckBox manualControlBtn, CheckBox pitchHoldButton)
         {
             // TODO: Complete member initialization
             this.headTracker = headTracker;
@@ -33,6 +37,10 @@ namespace UniCon.Interpreter
             this.CamFullHDButton = CamFullHDButton;
             this.camOffButton = camOffButton;
             this.camStabilizeCheckBox = camStabilizeCheckBox;
+            this.resetStateButton = resetStateBtn;
+            this.manualControlBtn = manualControlBtn;
+            this.pitchHoldButton = pitchHoldButton;
+            joyManualControlButtonPrevious = false;
         }
 
         internal string DecodeCon()
@@ -60,7 +68,7 @@ namespace UniCon.Interpreter
             cam640Button.Checked = false;
             CamFullHDButton.Checked = false;
             camOffButton.Checked = false;
-
+            
 
             if (!button2Prev && joypadController.getButton(2))
             {
@@ -83,6 +91,30 @@ namespace UniCon.Interpreter
 
             byte mode = 0;
             byte reserved = 0;
+
+            if(joyManualControlButtonPrevious==false && joypadController.getButton(9)==true){
+                manualControlBtn.Checked ^= true;
+            }
+            joyManualControlButtonPrevious = joypadController.getButton(9);
+
+            if (joypadController.getButton(8))
+            {
+                mode |= 0x80;
+            }
+            if (manualControlBtn.Checked)
+            {
+                mode |= 0x10;
+            }else if(pitchHoldButton.Checked)
+            {
+                mode |= 0x20;
+            }
+            if (resetStateButton.Checked)
+            {
+                mode |= 0x08;
+            }
+
+            resetStateButton.Checked = false;
+            
 
 
 
@@ -114,11 +146,11 @@ namespace UniCon.Interpreter
                 + cameraH_H.ToString("x2") + "," + cameraH_L.ToString("x2") + ","
                 + cameraV_H.ToString("x2") + "," + cameraV_L.ToString("x2") + ","
                 + reserved.ToString("x2") + ","
-                + cameraStart.ToString("x2") + "\n";
+                + cameraStart.ToString("x2");
 
         }
 
-        internal void SetHeadTrackerZero()
+        internal void ResetState()
         {
             degHeadTrackerZeroPoint = headTracker.radHeading * 180 / Math.PI;
         }

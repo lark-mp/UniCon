@@ -23,5 +23,9 @@ namespace UniCon.CommunicationControl.Communicator
 		{
 			return new TCPCommunicator(hostIP, sendPort, receivePort);
 		}
+        public Cmm920Communicator CreateCommunicator(ref SerialPort port, string portName,int dummy)
+        {
+            return new Cmm920Communicator(ref port,portName);
+        }
 	}
 }

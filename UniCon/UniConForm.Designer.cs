@@ -46,15 +46,14 @@
             this.connectJoypadCBox = new System.Windows.Forms.CheckBox();
             this.joypadGBox = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.headTrackerComCon = new UniCon.CommunicationControl.CommunicationControl();
             this.teleConGBox = new System.Windows.Forms.GroupBox();
             this.telemetryFileRecCBox = new System.Windows.Forms.CheckBox();
             this.telemetryFileOpenBtn = new System.Windows.Forms.Button();
             this.telemetrySaveTBox = new System.Windows.Forms.TextBox();
             this.teleSaveLabel = new System.Windows.Forms.Label();
-            this.teleConComCon = new UniCon.CommunicationControl.CommunicationControl();
             this.viewTab = new System.Windows.Forms.TabControl();
             this.visualView = new System.Windows.Forms.TabPage();
+            this.ClearWaypointButton = new System.Windows.Forms.Button();
             this.gMapWaypointAffirmButton = new System.Windows.Forms.Button();
             this.gMapCurPosBtn = new System.Windows.Forms.Button();
             this.gMapClearBtn = new System.Windows.Forms.Button();
@@ -65,7 +64,9 @@
             this.debugView = new System.Windows.Forms.TabPage();
             this.debugTBox = new System.Windows.Forms.TextBox();
             this.cameraGBox = new System.Windows.Forms.GroupBox();
-            this.headTrackZeroBtn = new System.Windows.Forms.Button();
+            this.pitchHoldButton = new System.Windows.Forms.CheckBox();
+            this.manualControlBtn = new System.Windows.Forms.CheckBox();
+            this.resetStateBtn = new System.Windows.Forms.CheckBox();
             this.camStabilizeCheckBox = new System.Windows.Forms.CheckBox();
             this.cam640Button = new System.Windows.Forms.CheckBox();
             this.camOffButton = new System.Windows.Forms.CheckBox();
@@ -80,6 +81,7 @@
             this.labelSpeedKmph = new System.Windows.Forms.Label();
             this.labelSpeedMps = new System.Windows.Forms.Label();
             this.statusGBox = new System.Windows.Forms.GroupBox();
+            this.controlPhaseLabel = new System.Windows.Forms.Label();
             this.speedGBox = new System.Windows.Forms.GroupBox();
             this.speedZLabel = new System.Windows.Forms.Label();
             this.speedYLabel = new System.Windows.Forms.Label();
@@ -94,6 +96,10 @@
             this.LongitudeLabel = new System.Windows.Forms.Label();
             this.LatitudeLabel = new System.Windows.Forms.Label();
             this.saveTelemetryDialog = new System.Windows.Forms.SaveFileDialog();
+            this.filterLabel = new System.Windows.Forms.Label();
+            this.filterTBox = new System.Windows.Forms.TextBox();
+            this.teleConComCon = new UniCon.CommunicationControl.CommunicationControl();
+            this.headTrackerComCon = new UniCon.CommunicationControl.CommunicationControl();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarJoyPitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarJoyroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarJoyYaw)).BeginInit();
@@ -117,6 +123,7 @@
             // 
             // joypadTimer
             // 
+            this.joypadTimer.Interval = 200;
             this.joypadTimer.Tick += new System.EventHandler(this.joypadTimer_Tick);
             // 
             // joypadCBox
@@ -218,12 +225,6 @@
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
-            // headTrackerComCon
-            // 
-            resources.ApplyResources(this.headTrackerComCon, "headTrackerComCon");
-            this.headTrackerComCon.Name = "headTrackerComCon";
-            this.headTrackerComCon.LineReceived += new System.EventHandler<UniCon.Interfaces.ReceiveLineEventArgs>(this.headTrackerComCon_LineReceived);
-            // 
             // teleConGBox
             // 
             this.teleConGBox.Controls.Add(this.telemetryFileRecCBox);
@@ -259,12 +260,6 @@
             resources.ApplyResources(this.teleSaveLabel, "teleSaveLabel");
             this.teleSaveLabel.Name = "teleSaveLabel";
             // 
-            // teleConComCon
-            // 
-            resources.ApplyResources(this.teleConComCon, "teleConComCon");
-            this.teleConComCon.Name = "teleConComCon";
-            this.teleConComCon.LineReceived += new System.EventHandler<UniCon.Interfaces.ReceiveLineEventArgs>(this.teleConComCon_LineReceived);
-            // 
             // viewTab
             // 
             this.viewTab.Controls.Add(this.visualView);
@@ -276,6 +271,7 @@
             // visualView
             // 
             this.visualView.BackColor = System.Drawing.SystemColors.Control;
+            this.visualView.Controls.Add(this.ClearWaypointButton);
             this.visualView.Controls.Add(this.gMapWaypointAffirmButton);
             this.visualView.Controls.Add(this.gMapCurPosBtn);
             this.visualView.Controls.Add(this.gMapClearBtn);
@@ -285,6 +281,13 @@
             this.visualView.Controls.Add(this.gMapWebBrowser);
             resources.ApplyResources(this.visualView, "visualView");
             this.visualView.Name = "visualView";
+            // 
+            // ClearWaypointButton
+            // 
+            resources.ApplyResources(this.ClearWaypointButton, "ClearWaypointButton");
+            this.ClearWaypointButton.Name = "ClearWaypointButton";
+            this.ClearWaypointButton.UseVisualStyleBackColor = true;
+            this.ClearWaypointButton.Click += new System.EventHandler(this.ClearWaypointButton_Click);
             // 
             // gMapWaypointAffirmButton
             // 
@@ -349,7 +352,9 @@
             // 
             // cameraGBox
             // 
-            this.cameraGBox.Controls.Add(this.headTrackZeroBtn);
+            this.cameraGBox.Controls.Add(this.pitchHoldButton);
+            this.cameraGBox.Controls.Add(this.manualControlBtn);
+            this.cameraGBox.Controls.Add(this.resetStateBtn);
             this.cameraGBox.Controls.Add(this.camStabilizeCheckBox);
             this.cameraGBox.Controls.Add(this.cam640Button);
             this.cameraGBox.Controls.Add(this.camOffButton);
@@ -358,12 +363,23 @@
             this.cameraGBox.Name = "cameraGBox";
             this.cameraGBox.TabStop = false;
             // 
-            // headTrackZeroBtn
+            // pitchHoldButton
             // 
-            resources.ApplyResources(this.headTrackZeroBtn, "headTrackZeroBtn");
-            this.headTrackZeroBtn.Name = "headTrackZeroBtn";
-            this.headTrackZeroBtn.UseVisualStyleBackColor = true;
-            this.headTrackZeroBtn.Click += new System.EventHandler(this.headTrackZeroBtn_Click);
+            resources.ApplyResources(this.pitchHoldButton, "pitchHoldButton");
+            this.pitchHoldButton.Name = "pitchHoldButton";
+            this.pitchHoldButton.UseVisualStyleBackColor = true;
+            // 
+            // manualControlBtn
+            // 
+            resources.ApplyResources(this.manualControlBtn, "manualControlBtn");
+            this.manualControlBtn.Name = "manualControlBtn";
+            this.manualControlBtn.UseVisualStyleBackColor = true;
+            // 
+            // resetStateBtn
+            // 
+            resources.ApplyResources(this.resetStateBtn, "resetStateBtn");
+            this.resetStateBtn.Name = "resetStateBtn";
+            this.resetStateBtn.UseVisualStyleBackColor = true;
             // 
             // camStabilizeCheckBox
             // 
@@ -439,12 +455,18 @@
             // 
             // statusGBox
             // 
+            this.statusGBox.Controls.Add(this.controlPhaseLabel);
             this.statusGBox.Controls.Add(this.speedGBox);
             this.statusGBox.Controls.Add(this.attitudeGBox);
             this.statusGBox.Controls.Add(this.gpsGBox);
             resources.ApplyResources(this.statusGBox, "statusGBox");
             this.statusGBox.Name = "statusGBox";
             this.statusGBox.TabStop = false;
+            // 
+            // controlPhaseLabel
+            // 
+            resources.ApplyResources(this.controlPhaseLabel, "controlPhaseLabel");
+            this.controlPhaseLabel.Name = "controlPhaseLabel";
             // 
             // speedGBox
             // 
@@ -533,10 +555,34 @@
             this.saveTelemetryDialog.FilterIndex = 0;
             this.saveTelemetryDialog.RestoreDirectory = true;
             // 
+            // filterLabel
+            // 
+            resources.ApplyResources(this.filterLabel, "filterLabel");
+            this.filterLabel.Name = "filterLabel";
+            // 
+            // filterTBox
+            // 
+            resources.ApplyResources(this.filterTBox, "filterTBox");
+            this.filterTBox.Name = "filterTBox";
+            // 
+            // teleConComCon
+            // 
+            resources.ApplyResources(this.teleConComCon, "teleConComCon");
+            this.teleConComCon.Name = "teleConComCon";
+            this.teleConComCon.LineReceived += new System.EventHandler<UniCon.Interfaces.ReceiveLineEventArgs>(this.teleConComCon_LineReceived);
+            // 
+            // headTrackerComCon
+            // 
+            resources.ApplyResources(this.headTrackerComCon, "headTrackerComCon");
+            this.headTrackerComCon.Name = "headTrackerComCon";
+            this.headTrackerComCon.LineReceived += new System.EventHandler<UniCon.Interfaces.ReceiveLineEventArgs>(this.headTrackerComCon_LineReceived);
+            // 
             // UniConForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.filterTBox);
+            this.Controls.Add(this.filterLabel);
             this.Controls.Add(this.hostTBox);
             this.Controls.Add(this.hostLabel);
             this.Controls.Add(this.deviceLabel);
@@ -571,6 +617,7 @@
             this.cameraGBox.ResumeLayout(false);
             this.cameraGBox.PerformLayout();
             this.statusGBox.ResumeLayout(false);
+            this.statusGBox.PerformLayout();
             this.speedGBox.ResumeLayout(false);
             this.speedGBox.PerformLayout();
             this.attitudeGBox.ResumeLayout(false);
@@ -632,8 +679,7 @@
 		private System.Windows.Forms.CheckBox camStabilizeCheckBox;
 		private System.Windows.Forms.CheckBox cam640Button;
 		private System.Windows.Forms.CheckBox camOffButton;
-		private System.Windows.Forms.CheckBox CamFullHDButton;
-        private System.Windows.Forms.Button headTrackZeroBtn;
+        private System.Windows.Forms.CheckBox CamFullHDButton;
         private System.Windows.Forms.CheckBox telemetryFileRecCBox;
         private System.Windows.Forms.Button telemetryFileOpenBtn;
         private System.Windows.Forms.SaveFileDialog saveTelemetryDialog;
@@ -648,6 +694,13 @@
         private System.Windows.Forms.Label pitchLabel;
         private System.Windows.Forms.Label rollLabel;
         private System.Windows.Forms.Button gMapWaypointAffirmButton;
+        private System.Windows.Forms.Label filterLabel;
+        private System.Windows.Forms.TextBox filterTBox;
+        private System.Windows.Forms.Button ClearWaypointButton;
+        private System.Windows.Forms.CheckBox resetStateBtn;
+        private System.Windows.Forms.CheckBox manualControlBtn;
+        private System.Windows.Forms.Label controlPhaseLabel;
+        private System.Windows.Forms.CheckBox pitchHoldButton;
 
 	}
 }

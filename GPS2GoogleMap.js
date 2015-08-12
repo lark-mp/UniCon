@@ -1,8 +1,11 @@
 /* global GEvent */
 
+var AFFIRMED_ACTIVE_COLOR = "#0000FF";
+
 var marker = null;
 var googlemap = null;
 var polyline = null;
+var nextWaypointLine = null;
 var precisionCircle = null;
 var testCircle = null;
 var attitudeSymbol = null;
@@ -10,6 +13,8 @@ var attitudeMarker = null;
 var waypointPolyline = null;
 var waypointCircles = [];
 var waypointLengthTest;
+var affirmedWaypointPolyline = null;
+var affirmedWaypointCircles = [];
 
 var tmp =0;
 
@@ -67,23 +72,25 @@ function initWaypointLengthDiv(controlDiv){
     controlUI.appendChild(waypointLengthTest);
 }
 
-function updatePosition(latitude, longitude, accuracy,degHeading,gpsValid){
+function updatePosition(latitude, longitude, accuracy,degHeading,gpsValid,nextWaypointId){
     var lat = parseFloat(latitude);
     var lng = parseFloat(longitude);
     var acc = parseFloat(accuracy);
     var hed = parseFloat(degHeading);
 
     var latlng = new google.maps.LatLng(lat, lng);
-//    if (marker){
-//        if(googlemap.getCenter().equals(marker.getPosition())){
-//                googlemap.panTo(latlng);
-//        }
-//    }
+    if (attitudeMarker){
+        if(googlemap.getCenter().equals(attitudeMarker.getPosition())){
+                googlemap.panTo(latlng);
+        }
+    }
     
     drawLine(latlng);
     moveMarker(latlng,hed,gpsValid);
     drawPrecisionCircle(latlng, acc);
     
+    setNextAffirmedWaypoint(parseInt(nextWaypointId));
+    drawNextWaypointLine(latlng,parseInt(nextWaypointId));
 }
 
 //function moveMarker(currentPos){
@@ -113,6 +120,38 @@ function drawLine(currentPos) {
 	path.push(currentPos);
 }
 
+function drawNextWaypointLine(latLng,nextWaypointId){
+        if(!affirmedWaypointCircles || nextWaypointId > affirmedWaypointCircles.length || !affirmedWaypointCircles[nextWaypointId]){
+            if(nextWaypointLine){
+                nextWaypointLine.setMap(null);
+                nextWaypointLine=null;
+            }
+            
+            return;
+        }
+        
+        
+        if(!nextWaypointLine){
+            var polyOptions = {
+                strokeColor: "#808080",
+                strokeOpacity:0.5,
+                strokeWeight:1
+            };
+            nextWaypointLine = new google.maps.Polyline(polyOptions);
+            nextWaypointLine.setMap(googlemap);
+            
+            
+        }
+        var path = nextWaypointLine.getPath();
+        while(path.getLength() !== 0){
+            path.removeAt(0);
+        }
+        
+        
+        path.push(latLng);
+        path.push(affirmedWaypointCircles[nextWaypointId].getPosition());
+}
+
 function drawPrecisionCircle(currentPos, accuracy){
 	if(!precisionCircle){
 		precisionCircle =
@@ -132,8 +171,8 @@ function drawPrecisionCircle(currentPos, accuracy){
 }
 
 function currentPos(){
-    if(marker){
-        googlemap.panTo(marker.getPosition());
+    if(attitudeMarker){
+        googlemap.panTo(attitudeMarker.getPosition());
     }
 }
 
@@ -221,6 +260,12 @@ function deleteWaypoint(i){
 	waypointPolylineReconstruct();
 }
 
+function deleteAllWaypoints(){
+        while(waypointCircles.length !== 0){
+            deleteWaypoint(0);
+        }
+}
+
 function waypointCircleDragged(event){
         waypointPolylineReconstruct();
 }
@@ -236,7 +281,9 @@ function waypointPolylineReconstruct(){
 				path:points,
 				strokeColor:"#FF0000",
 				strokeOpacity:1.0,
-				strokeWeight:2
+				strokeWeight:2,
+                                draggable:false,
+                                clickable:false
 		});
 	for(var i=0;i<waypointCircles.length;i++){
 		waypointPolyline.getPath().push(waypointCircles[i].getPosition());
@@ -268,3 +315,68 @@ function getWaypointString(){
         }
         return waypointString;
 }
+
+function addAffirmedWaypoint(lat,lng){
+        var latLng = new google.maps.LatLng(lat,lng);
+        var circleSymbol = {
+                path:google.maps.SymbolPath.CIRCLE,
+                scale:10,
+                fillOpacity:0,
+                strokeColor:AFFIRMED_ACTIVE_COLOR,
+                strokeWeight:1,
+        }
+        
+	var newCircle = new google.maps.Marker({
+			map: googlemap,
+                        position: latLng,
+                        path:google.maps.SymbolPath.CIRCLE,
+                        icon:circleSymbol,
+			draggable:false,
+                        clickable:false
+			});
+	affirmedWaypointCircles.push(newCircle);
+        affirmedWaypointPolylineReconstruct();
+}
+
+function affirmedWaypointPolylineReconstruct(){
+        if(affirmedWaypointPolyline != null){
+            affirmedWaypointPolyline.setMap(null);
+            affirmedWaypointPolyline = null;
+        }
+	var points = [];
+		affirmedWaypointPolyline = new google.maps.Polyline({
+				map:googlemap,
+				path:points,
+				strokeColor:AFFIRMED_ACTIVE_COLOR,
+				strokeOpacity:0.3,
+				strokeWeight:2,
+                                draggable:false,
+                                clickable:false
+		});
+	for(var i=0;i<affirmedWaypointCircles.length;i++){
+		affirmedWaypointPolyline.getPath().push(affirmedWaypointCircles[i].getPosition());
+	}
+}
+
+function deleteAllAffirmedWaypoints(){
+    while(affirmedWaypointCircles.length !== 0){
+        affirmedWaypointCircles[0].setMap(null);
+        affirmedWaypointCircles.splice(0,1);
+    }
+    affirmedWaypointPolylineReconstruct();
+}
+
+function setNextAffirmedWaypoint(waypointId){
+    if(!affirmedWaypointCircles){
+        return;
+    }
+    for(var i=0;i<affirmedWaypointCircles.length;i++){
+        if(i == waypointId){
+            affirmedWaypointCircles[i].setOpacity(1.0);
+        }else{
+            affirmedWaypointCircles[i].setOpacity(0.4);
+        }
+    }
+    
+}
+

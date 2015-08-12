@@ -52,7 +52,7 @@ namespace UniCon
             InitializeHeadTracker();
 			InitializeGMap();
 			InitializeAttitudeImage();
-			InitializeCvOculus();
+			//InitializeCvOculus();
 
 			// interpreter は最後に初期化
 			InitializeInterpreter();
@@ -95,7 +95,7 @@ namespace UniCon
 
 		private void InitializeInterpreter()
 		{
-			interpreter = new Interpreter.Interpreter(headTracker, cvOculus, cam640Button, CamFullHDButton, camOffButton, camStabilizeCheckBox);
+			interpreter = new Interpreter.Interpreter(headTracker, cvOculus, cam640Button, CamFullHDButton, camOffButton, camStabilizeCheckBox,resetStateBtn,manualControlBtn,pitchHoldButton);
 		}
 
 		private void InitializeCvOculus()
@@ -111,7 +111,7 @@ namespace UniCon
 			joypadController.UpdateJoyView();
             string decodeText = interpreter.DecodeCon();
 			teleConComCon.SendLine(decodeText);
-            hostTBox.AppendText(decodeText);
+            hostTBox.AppendText(decodeText+"\r\n");
 		}
 
 		private void connectJoypadCBox_CheckedChanged(object sender, EventArgs e)
@@ -166,12 +166,20 @@ namespace UniCon
 		private void RcvDataToTextBox(string line)
 		{
 			line += "\r\n";
-			deviceTBox.AppendText(line);
-			debugTBox.AppendText(line);
+
+
+            if (filterTBox.Text.Length == 0 || line.StartsWith(filterTBox.Text))
+            {
+                deviceTBox.AppendText(line);
+                debugTBox.AppendText(line);    
+            }
+            
+
 			rollPictureBox.Invalidate();
 			pitchPictureBox.Invalidate();
 			headingPictureBox.Invalidate();
 		}
+
 		private void teleConComCon_LineReceived(object sender, Interfaces.ReceiveLineEventArgs e)
 		{
 			Invoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), new Object[] { e.line });
@@ -224,8 +232,25 @@ namespace UniCon
                 string command = "setWaypoint " + latlng[i];
                 teleConComCon.SendLine(command);
             }
+
+            object[] args2 = { };
+            gMapWebBrowser.Document.InvokeScript("deleteAllWaypoints", args2);
+
+            teleConComCon.SendLine("confirmWaypoints");
+        }
+        private void ClearWaypointButton_Click(object sender, EventArgs e)
+        {
+            object[] args = { };
+            gMapWebBrowser.Document.InvokeScript("deleteAllWaypoints",args);
         }
 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            object[] args5 = { 1 };
+            gMapWebBrowser.Document.InvokeScript("setNextAffirmedWaypoint", args5);
+            
+        }
         public void setGpsStatusLabel(double lattitude,double longitude,double hdop,double height)
         {
             Object[] args = { lattitude, longitude, hdop, height };
@@ -254,6 +279,18 @@ namespace UniCon
             headingLabel.Text = "Heading: " + heading.ToString("###.##");
         }
 
+        public void setControlPhaseLabel(string data)
+        {
+            Object[] args = { data };
+            Invoke(new controlPhaseTextDelegate(setControlPhaseLabelDelegateFunc), args);
+        }
+
+        public delegate void controlPhaseTextDelegate(string data);
+        private void setControlPhaseLabelDelegateFunc(string data)
+        {
+            controlPhaseLabel.Text = data;
+        }
+
         public void setSpeedStatusLabel(double mpsXSpeed, double mpsYSpeed, double mpsZSpeed)
         {
             Object[] args = { mpsXSpeed, mpsYSpeed, mpsZSpeed };
@@ -275,7 +312,7 @@ namespace UniCon
 
         private void headTrackZeroBtn_Click(object sender, EventArgs e)
         {
-            interpreter.SetHeadTrackerZero();
+            interpreter.ResetState();
         }
 
         private void telemetryFileOpenBtn_Click(object sender, EventArgs e)
@@ -328,6 +365,10 @@ namespace UniCon
 
 
         #endregion
+
+
+
+
 
 
 

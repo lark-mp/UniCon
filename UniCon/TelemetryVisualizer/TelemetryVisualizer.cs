@@ -22,6 +22,17 @@ namespace UniCon.TelemetryVisualizer
         private readonly string headingFront = "UniCon.TelemetryVisualizer.AttitudeImage.HeadingFront.png";
         private readonly string headingBack = "UniCon.TelemetryVisualizer.AttitudeImage.HeadingBack.png";
 
+        private readonly string[] CONTROL_PHASE = {
+            "LaunchStandby",
+            "BoostPhase",
+            "GlidePhase",
+            "ManualControl",
+            "Emergency",
+            "PitchHold",
+        };
+
+
+
         AttitudeImage rollImage;
         AttitudeImage pitchImage;
         AttitudeImage headingImage;
@@ -35,6 +46,8 @@ namespace UniCon.TelemetryVisualizer
         double longitude;
         double accuracy;
         int gpsValid;
+        int nextWaypointId;
+
         WebBrowser browser;
         UniConForm form;
 
@@ -69,7 +82,12 @@ namespace UniCon.TelemetryVisualizer
 			string[] words = line.Split(',');
 			if (line.Contains(GPAIO))
             {
-                //$GPAIO,Latitude,N/S,Longitude,E/W,height,HDOP,pitch,roll,yaw,SpeedX,SpeedY,SpeedZ,GpsValid,checksum
+                if(words.Length != 17){
+                    Console.WriteLine("invalid line:");
+                    Console.WriteLine(line);
+                    return;
+                }
+                //$GPAIO,Latitude,N/S,Longitude,E/W,height,HDOP,pitch,roll,yaw,SpeedX,SpeedY,SpeedZ,GpsValid,nextWaypoint,checksum
                 double tmpDegPitch;
                 double tmpDegRoll;
                 double tmpDegHeading;
@@ -101,11 +119,19 @@ namespace UniCon.TelemetryVisualizer
                 Int32.TryParse(words[13],out tmpGpsValid);
                 gpsValid = tmpGpsValid;
 
+                int tmpNextWaypointId;
+                Int32.TryParse(words[14], out tmpNextWaypointId);
+                nextWaypointId = tmpNextWaypointId;
                 UpdatePos();
+
+                Int32 controlPhaseId;
+                Int32.TryParse(words[15], out controlPhaseId);
+                string controlPhaseText = CONTROL_PHASE[controlPhaseId];
 
                 form.setGpsStatusLabel(latitude,longitude, 1, height);
                 form.setSpeedStatusLabel(tmpMpsXSpeed,tmpMpsYSpeed,tmpMpsZSpeed);
                 form.setAttitudeStatusLabel(0,degRoll,degPitch,degHeading);
+                form.setControlPhaseLabel("Phase:"+controlPhaseText);
             }
 			else if (line.Contains(GIQAT))
 			{
@@ -121,6 +147,30 @@ namespace UniCon.TelemetryVisualizer
             {
                 degCannonHeadingRelativeToBody = double.Parse(words[1]);
             }
+            else if(words[0] == "$WPAFM"){
+                //$WPAFM,WaypointCount,Lattitude0,Longitude0,Lattitude1,Longitude1,...
+                if (browser != null)
+                {
+                    browser.Invoke(new deleteAllAffirmedWaypointsDelegate(delegateDeleteAllAffirmedWaypoints), null);
+
+
+                    int waypointCount;
+                    int.TryParse(words[1], out waypointCount);
+                    if (words.Length == 2 + (waypointCount * 2))
+                    {
+                        for (int i = 0; i < waypointCount; i++)
+                        {
+                            double lattitude, longitude;
+                            double.TryParse(words[i * 2 + 2], out lattitude);
+                            double.TryParse(words[i * 2 + 3], out longitude);
+
+                            browser.Invoke(new setAffirmedWaypointDelegate(delegateSetAffirmedWaypoint), lattitude, longitude);
+
+                        }
+                    }
+
+                }
+            }
 
 		}
 
@@ -135,8 +185,22 @@ namespace UniCon.TelemetryVisualizer
         private delegate void UpdatePosDelegate();
         private void delegateUpdatePos()
         {
-            object[] args = { latitude.ToString(), longitude.ToString(), accuracy.ToString(), degHeading.ToString() ,gpsValid.ToString()};
+            object[] args = { latitude.ToString(), longitude.ToString(), accuracy.ToString(), degHeading.ToString() ,gpsValid.ToString(),nextWaypointId.ToString()};
             this.browser.Document.InvokeScript("updatePosition", args);
+        }
+
+        private delegate void setAffirmedWaypointDelegate(double lattitude,double longitude);
+        private void delegateSetAffirmedWaypoint(double lattitude,double longitude)
+        {
+            object[] args = { lattitude,longitude };
+            this.browser.Document.InvokeScript("addAffirmedWaypoint", args);
+        }
+
+        private delegate void deleteAllAffirmedWaypointsDelegate();
+        private void delegateDeleteAllAffirmedWaypoints()
+        {
+            object[] args = { };
+            this.browser.Document.InvokeScript("deleteAllAffirmedWaypoints",args);
         }
 	}
 }
