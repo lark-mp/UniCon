@@ -23,6 +23,7 @@ namespace UniCon.CV
 		static double angle_test = 0;
 
 		private bool cvContinue;
+
 		CvMat oculusWarpMapX = null;
 		CvMat oculusWarpMapY = null;
 		IplImage overlayStaticContent;

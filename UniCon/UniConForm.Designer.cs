@@ -100,6 +100,7 @@
             this.filterTBox = new System.Windows.Forms.TextBox();
             this.teleConComCon = new UniCon.CommunicationControl.CommunicationControl();
             this.headTrackerComCon = new UniCon.CommunicationControl.CommunicationControl();
+            this.volatgeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarJoyPitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarJoyroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarJoyYaw)).BeginInit();
@@ -456,6 +457,7 @@
             // statusGBox
             // 
             this.statusGBox.Controls.Add(this.controlPhaseLabel);
+            this.statusGBox.Controls.Add(this.volatgeLabel);
             this.statusGBox.Controls.Add(this.speedGBox);
             this.statusGBox.Controls.Add(this.attitudeGBox);
             this.statusGBox.Controls.Add(this.gpsGBox);
@@ -576,6 +578,11 @@
             resources.ApplyResources(this.headTrackerComCon, "headTrackerComCon");
             this.headTrackerComCon.Name = "headTrackerComCon";
             this.headTrackerComCon.LineReceived += new System.EventHandler<UniCon.Interfaces.ReceiveLineEventArgs>(this.headTrackerComCon_LineReceived);
+            // 
+            // volatgeLabel
+            // 
+            resources.ApplyResources(this.volatgeLabel, "volatgeLabel");
+            this.volatgeLabel.Name = "volatgeLabel";
             // 
             // UniConForm
             // 
@@ -701,6 +708,7 @@
         private System.Windows.Forms.CheckBox manualControlBtn;
         private System.Windows.Forms.Label controlPhaseLabel;
         private System.Windows.Forms.CheckBox pitchHoldButton;
+        private System.Windows.Forms.Label volatgeLabel;
 
 	}
 }

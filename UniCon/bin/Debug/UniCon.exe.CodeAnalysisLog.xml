@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="15.0">
+ <Targets>
+  <Target Name="E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\UniCon.exe">
+   <Modules>
+    <Module Name="unicon.exe">
+     <Namespaces>
+      <Namespace Name="UniCon.CommunicationControl.Communicator">
+       <Types>
+        <Type Name="Cmm920Communicator" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#Disconnect()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotLockOnObjectsWithWeakIdentity" Category="Microsoft.Reliability" CheckId="CA2002" Status="Active" Created="2019-04-27 10:44:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="CriticalError" Path="E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\CommunicationControl\Communicator" File="Cmm920Communicator.cs" Line="54">'Cmm920Communicator.Disconnect()' は、型 'SerialPort' の参照上でロックします。強い ID を伴うオブジェクトに対するロックで置き換えてください。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="COMCommunicator" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#Disconnect()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotLockOnObjectsWithWeakIdentity" Category="Microsoft.Reliability" CheckId="CA2002" Status="Active" Created="2019-04-27 10:44:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="CriticalError" Path="E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\CommunicationControl\Communicator" File="COMCommunicator.cs" Line="63">'COMCommunicator.Disconnect()' は、型 'SerialPort' の参照上でロックします。強い ID を伴うオブジェクトに対するロックで置き換えてください。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TcpSender" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-04-27 10:44:19Z" FixCategory="NonBreaking">
+           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">次の IDisposable 型のメンバーを作成するため、IDisposable を 'TcpSender' で実装します: 'TcpClient', 'MemoryStream'。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="UniCon.Joypad">
+       <Types>
+        <Type Name="JoypadController" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-04-27 10:44:19Z" FixCategory="NonBreaking">
+           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">次の IDisposable 型のメンバーを作成するため、IDisposable を 'JoypadController' で実装します: 'Joystick'。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="UniCon.TelemetryVisualizer">
+       <Types>
+        <Type Name="AttitudeImage" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-04-27 10:44:19Z" FixCategory="NonBreaking">
+           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">次の IDisposable 型のメンバーを作成するため、IDisposable を 'AttitudeImage' で実装します: 'Bitmap'。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="DoNotLockOnObjectsWithWeakIdentity" Category="Microsoft.Reliability" CheckId="CA2002">
+   <Name>弱い ID を伴うオブジェクト上でロックしません</Name>
+   <Description>AppDomains 間でロックされる可能性のあるオブジェクト、または強い ID を伴わないオブジェクトでのロックを行いません。</Description>
+   <Resolution Name="Default">{0} は、型 {1} の参照上でロックします。強い ID を伴うオブジェクトに対するロックで置き換えてください。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182290.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalError</MessageLevel>
+   <File Name="reliabilityrules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>破棄可能なフィールドを所有する型は、破棄可能でなければなりません</Name>
+   <Description>破棄可能なメンバーを宣言する型は、IDisposable を実装しなければなりません。型がアンマネージ リソースを所有しない場合は、その型でファイナライザーを実装しないでください。</Description>
+   <Resolution Name="NonBreaking">次の IDisposable 型のメンバーを作成するため、IDisposable を {0} で実装します: {1}。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="15.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">カテゴリ</String>
+  <String Key="Certainty">確実性</String>
+  <String Key="CollapseAll">すべて折りたたむ</String>
+  <String Key="CheckId">ID の確認</String>
+  <String Key="Error">エラー</String>
+  <String Key="Errors">エラー</String>
+  <String Key="ExpandAll">すべて展開</String>
+  <String Key="Help">ヘルプ</String>
+  <String Key="Line">行</String>
+  <String Key="Messages">メッセージ</String>
+  <String Key="LocationNotStoredInPdb">[場所は Pdb に格納されていません]</String>
+  <String Key="Project">プロジェクト</String>
+  <String Key="Resolution">解像度</String>
+  <String Key="Rule">ルール</String>
+  <String Key="RuleFile">規則ファイル</String>
+  <String Key="RuleDescription">規則の説明</String>
+  <String Key="Source">ソース</String>
+  <String Key="Status">状態</String>
+  <String Key="Target">ターゲット</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">コード分析レポート</String>
+ </Localized>
+</FxCopReport>
