@@ -182,11 +182,20 @@ namespace UniCon
 
 		private void teleConComCon_LineReceived(object sender, Interfaces.ReceiveLineEventArgs e)
 		{
-			Invoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), new Object[] { e.line });
-			telemetryVisualizer.DecodeLine(e.line);
-            if (sw != null)
+            try
             {
-                sw.Write(e.line);                
+                Invoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), new Object[] { e.line });
+                telemetryVisualizer.DecodeLine(e.line);
+                if (sw != null)
+                {
+                    sw.Write(e.line);
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+            }
+            catch (InvalidOperationException)
+            {
             }
 		}
 
@@ -289,6 +298,19 @@ namespace UniCon
         private void setControlPhaseLabelDelegateFunc(string data)
         {
             controlPhaseLabel.Text = data;
+        }
+
+
+        delegate void voltageLabelTextDelegate(string data);
+        private void setVoltageLabelDelegateFunc(string data)
+        {
+            volatgeLabel.Text = data;
+
+        }
+        public void setVoltageLabel(string data)
+        {
+            Object[] args = { data };
+            Invoke(new voltageLabelTextDelegate(setVoltageLabelDelegateFunc), args);
         }
 
         public void setSpeedStatusLabel(double mpsXSpeed, double mpsYSpeed, double mpsZSpeed)

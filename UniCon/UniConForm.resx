@@ -1545,6 +1545,36 @@
   <data name="&gt;&gt;controlPhaseLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="volatgeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="volatgeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="volatgeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 178</value>
+  </data>
+  <data name="volatgeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 12</value>
+  </data>
+  <data name="volatgeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="volatgeLabel.Text" xml:space="preserve">
+    <value>VBAT: 0 [V]</value>
+  </data>
+  <data name="&gt;&gt;volatgeLabel.Name" xml:space="preserve">
+    <value>volatgeLabel</value>
+  </data>
+  <data name="&gt;&gt;volatgeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;volatgeLabel.Parent" xml:space="preserve">
+    <value>statusGBox</value>
+  </data>
+  <data name="&gt;&gt;volatgeLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="speedZLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1657,7 +1687,7 @@
     <value>statusGBox</value>
   </data>
   <data name="&gt;&gt;speedGBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="headingLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1771,7 +1801,7 @@
     <value>statusGBox</value>
   </data>
   <data name="&gt;&gt;attitudeGBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="hdopLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1915,7 +1945,7 @@
     <value>statusGBox</value>
   </data>
   <data name="&gt;&gt;gpsGBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="statusGBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>981, 526</value>
@@ -2012,6 +2042,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1264, 761</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Universal Controller</value>

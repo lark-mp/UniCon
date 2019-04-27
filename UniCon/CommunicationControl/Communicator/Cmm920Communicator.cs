@@ -152,13 +152,15 @@ namespace UniCon.CommunicationControl.Communicator
         }
 
         private void sendCommand(short cmd, byte[] data, int dataLength){
-        constructTxData(cmd, data, dataLength);
+            constructTxData(cmd, data, dataLength);
 
-        lock (this)
-        {
-            port.Write(txBuffer, 0, 11 + dataLength);
+            lock (this)
+            {
+                port.Write(txBuffer, 0, 11 + dataLength);
+            }
+            System.Threading.Thread.Sleep(20);
+
         }
-    }
         private void constructTxData(short cmd, byte[] data, int dataLength)
         {
             int length = dataLength + 5;

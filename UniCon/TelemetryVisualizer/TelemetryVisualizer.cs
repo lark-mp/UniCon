@@ -24,6 +24,7 @@ namespace UniCon.TelemetryVisualizer
 
         private readonly string[] CONTROL_PHASE = {
             "LaunchStandby",
+            "BoostPhase0",
             "BoostPhase",
             "GlidePhase",
             "ManualControl",
@@ -82,15 +83,16 @@ namespace UniCon.TelemetryVisualizer
 			string[] words = line.Split(',');
 			if (line.Contains(GPAIO))
             {
-                if(words.Length != 17){
+                if(words.Length != 18){
                     Console.WriteLine("invalid line:");
                     Console.WriteLine(line);
                     return;
                 }
-                //$GPAIO,Latitude,N/S,Longitude,E/W,height,HDOP,pitch,roll,yaw,SpeedX,SpeedY,SpeedZ,GpsValid,nextWaypoint,checksum
+                //$GPAIO,Latitude,N/S,Longitude,E/W,height,HDOP,pitch,roll,yaw,SpeedX,SpeedY,SpeedZ,GpsValid,nextWaypoint,controlPhase,BatteryVoltage,checksum
                 double tmpDegPitch;
                 double tmpDegRoll;
                 double tmpDegHeading;
+                double tmpBatteryVoltage;
                 double height;
 
                 latitude = double.Parse(words[1].Substring(0, 2)) + double.Parse(words[1].Substring(2)) / 60;
@@ -128,10 +130,20 @@ namespace UniCon.TelemetryVisualizer
                 Int32.TryParse(words[15], out controlPhaseId);
                 string controlPhaseText = CONTROL_PHASE[controlPhaseId];
 
+                double.TryParse(words[16], out tmpBatteryVoltage);
+
                 form.setGpsStatusLabel(latitude,longitude, 1, height);
                 form.setSpeedStatusLabel(tmpMpsXSpeed,tmpMpsYSpeed,tmpMpsZSpeed);
                 form.setAttitudeStatusLabel(0,degRoll,degPitch,degHeading);
                 form.setControlPhaseLabel("Phase:"+controlPhaseText);
+                if (tmpBatteryVoltage > 115)
+                {
+                    form.setVoltageLabel("VBAT:" + tmpBatteryVoltage + "[V]");
+                }
+                else
+                {
+                    form.setVoltageLabel("VBAT: !!!" + tmpBatteryVoltage + "[V]");
+                }
             }
 			else if (line.Contains(GIQAT))
 			{

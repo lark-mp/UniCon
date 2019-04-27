@@ -71,7 +71,6 @@ E:\MyDocument\Dropbox\FutureGadgetResearch\sa\NetBeansProjects\UniCon\UniCon\obj
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\UniCon.exe.config
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.exe
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.pdb
-E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.csprojResolveAssemblyReference.cache
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.CommunicationControl.CommunicationControl.resources
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.UniConForm.resources
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.Properties.Resources.resources
@@ -138,3 +137,10 @@ E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\OpenCvSharp.Ex
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\SharpDX.xml
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\SharpDX.DirectInput.xml
 E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\SharpOVR.xml
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\UniCon.exe.CodeAnalysisLog.xml
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\UniCon.exe.lastcodeanalysissucceeded
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.csprojResolveAssemblyReference.cache
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\OpenCvSharp.dll.config
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\OpenCvSharp.Blob.dll.config
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\bin\Debug\OpenCvSharp.CPlusPlus.dll.config
+E:\MyDocument\Dropbox\sa\NetBeansProjects\UniCon\UniCon\obj\Debug\UniCon.csproj.CoreCompileInputs.cache

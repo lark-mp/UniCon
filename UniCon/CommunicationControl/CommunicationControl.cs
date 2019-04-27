@@ -112,8 +112,8 @@ namespace UniCon.CommunicationControl
 		{
 			if (comSerialRBtn.Checked)
 			{
-				//communicator = comFactory.CreateCommunicator(ref comSerialPort, comSerialCBox.Text);
-                communicator = comFactory.CreateCommunicator(ref comSerialPort, comSerialCBox.Text,0);
+				communicator = comFactory.CreateCommunicator(ref comSerialPort, comSerialCBox.Text);
+                //communicator = comFactory.CreateCommunicator(ref comSerialPort, comSerialCBox.Text,0);
 			}
 			else if (comTCPRBtn.Checked)
 			{
