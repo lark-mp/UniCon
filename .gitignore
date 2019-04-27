@@ -1,3 +1,7 @@
 #test.html containg googlemap API key.
 #Do not upload test.html
 test.html
+
+#ignore build files, suo files
+*.suo
+/UniCon/bin/
