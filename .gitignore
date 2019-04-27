@@ -5,3 +5,4 @@ test.html
 #ignore build files, suo files
 *.suo
 /UniCon/bin/
+.vs/UniCon/v15
